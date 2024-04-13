@@ -9,12 +9,11 @@ definitions:
         type: string
       updateDateAt:
         type: integer
-      userId:
-        type: string
+      user:
+        $ref: '#/definitions/model.User'
     required:
     - commentMessage
     - exhibitionId
-    - userId
     type: object
   model.RequestUpdateComment:
     properties:
@@ -24,6 +23,17 @@ definitions:
         type: integer
     required:
     - commentMessage
+    type: object
+  model.User:
+    properties:
+      firstname:
+        type: string
+      id:
+        type: string
+      lastname:
+        type: string
+      profile:
+        type: string
     type: object
 info:
   contact: {}

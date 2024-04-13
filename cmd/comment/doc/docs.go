@@ -256,8 +256,7 @@ const docTemplate = `{
             "type": "object",
             "required": [
                 "commentMessage",
-                "exhibitionId",
-                "userId"
+                "exhibitionId"
             ],
             "properties": {
                 "commentMessage": {
@@ -272,8 +271,8 @@ const docTemplate = `{
                 "updateDateAt": {
                     "type": "integer"
                 },
-                "userId": {
-                    "type": "string"
+                "user": {
+                    "$ref": "#/definitions/model.User"
                 }
             }
         },
@@ -288,6 +287,23 @@ const docTemplate = `{
                 },
                 "updateDateAt": {
                     "type": "integer"
+                }
+            }
+        },
+        "model.User": {
+            "type": "object",
+            "properties": {
+                "firstname": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "lastname": {
+                    "type": "string"
+                },
+                "profile": {
+                    "type": "string"
                 }
             }
         }

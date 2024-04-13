@@ -12,7 +12,7 @@ import (
 
 func (r *CommentRepository) CreateComment(ctx context.Context, userID primitive.ObjectID, comment *model.RequestCreateComment) (*primitive.ObjectID, error) {
 	// Set UserID
-	comment.UserId = userID
+	comment.User.ID = userID
 
 	// Set the Bangkok timezone offset to UTC+7
 	const bangkokOffset = 7 * 60 * 60 // 7 hours in seconds

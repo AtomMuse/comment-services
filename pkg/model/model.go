@@ -26,7 +26,7 @@ type User struct {
 type Comment struct {
 	ID             primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty" validate:"required"`
 	ExhibitionID   primitive.ObjectID `bson:"exhibitionID" json:"exhibitionId" validate:"required"`
-	UserId         primitive.ObjectID `bson:"userId" json:"userId" validate:"required"`
+	User           User               `bson:"user" json:"user" validate:"required"`
 	CommentMessage string             `bson:"commentMessage" json:"commentMessage" validate:"required"`
 	CreateDateAt   primitive.DateTime `bson:"createDateAt" json:"createDateAt" validate:"required"`
 	UpdateDateAt   primitive.DateTime `bson:"updateDateAt" json:"updateDateAt" validate:"required"`
@@ -35,7 +35,7 @@ type Comment struct {
 type ResponseComment struct {
 	ID             primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty" validate:"required"`
 	ExhibitionID   primitive.ObjectID `bson:"exhibitionID" json:"exhibitionId" validate:"required"`
-	User           User               `bson:"userId" json:"userId" validate:"required"`
+	User           User               `bson:"user" json:"user" validate:"required"`
 	CommentMessage string             `bson:"commentMessage" json:"commentMessage" validate:"required"`
 	CreateDateAt   primitive.DateTime `bson:"createDateAt" json:"createDateAt" validate:"required"`
 	UpdateDateAt   primitive.DateTime `bson:"updateDateAt,omitempty" json:"updateDateAt,omitempty" `
@@ -43,7 +43,7 @@ type ResponseComment struct {
 
 type RequestCreateComment struct {
 	ExhibitionID   primitive.ObjectID `bson:"exhibitionID" json:"exhibitionId" validate:"required"`
-	UserId         primitive.ObjectID `bson:"userId" json:"userId" validate:"required"`
+	User           User               `bson:"user,omitempty" json:"user,omitempty"`
 	CommentMessage string             `bson:"commentMessage" json:"commentMessage" validate:"required"`
 	UpdateDateAt   primitive.DateTime `bson:"updateDateAt,omitempty" json:"updateDateAt,omitempty" `
 	CreateDateAt   primitive.DateTime `bson:"createDateAt,omitempty" json:"createDateAt,omitempty"`

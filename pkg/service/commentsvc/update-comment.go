@@ -15,7 +15,7 @@ func (s *CommentService) UpdateComment(ctx context.Context, commentID primitive.
 		return err
 	}
 
-	if comment.UserId != userID {
+	if comment.User.ID != userID {
 		return errors.New("unauthorized: user is not allowed to update this comment")
 	}
 

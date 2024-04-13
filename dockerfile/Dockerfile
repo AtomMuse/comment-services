@@ -9,7 +9,7 @@ COPY go.mod go.sum ./
 COPY . .
 
 # Build the Go application
-RUN go build -o /my-exhibition-app ./cmd/exhibition
+RUN go build -o /my-comment-app ./cmd/comment
 
 # Start a new stage for a small image
 FROM alpine:3.14
@@ -18,7 +18,7 @@ FROM alpine:3.14
 WORKDIR /app
 
 # Copy the built executable from the builder stage
-COPY --from=builder /my-exhibition-app .
+COPY --from=builder /my-comment-app .
 
 # Copy the .env file
 COPY .env .
@@ -27,4 +27,4 @@ COPY .env .
 EXPOSE 8080
 
 # Command to run the executable
-CMD ["./my-exhibition-app"]
+CMD ["./my-comment-app"]

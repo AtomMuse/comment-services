@@ -25,13 +25,13 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
-// @Title						Comment Service API
-// @Version					v0
-// @Description				Comment Service สำหรับขอจัดการเกี่ยวกับ Workshop Manager ทั้งการสร้าง แก้ไข ลบ Workshop Manager
-// @Schemes					http
-// @SecurityDefinitions.apikey	BearerAuth
-// @In							header
-// @Name						Authorization
+//	@Title						Comment Service API
+//	@Version					v0
+//	@Description				Comment Service สำหรับขอจัดการเกี่ยวกับ Workshop Manager ทั้งการสร้าง แก้ไข ลบ Workshop Manager
+//	@Schemes					http
+//	@SecurityDefinitions.apikey	BearerAuth
+//	@In							header
+//	@Name						Authorization
 func main() {
 	initializeEnvironment()
 

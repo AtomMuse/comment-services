@@ -180,8 +180,6 @@ paths:
           description: Unauthorized
         "500":
           description: Internal Server Error
-      security:
-      - BearerAuth: []
       summary: GetCommentsByExhibitionID
       tags:
       - Comments

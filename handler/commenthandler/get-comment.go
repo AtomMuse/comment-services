@@ -42,7 +42,6 @@ func (h *CommentHandler) GetCommentByID(c *gin.Context) {
 //	@Summary		GetCommentsByExhibitionID
 //	@Description	GetCommentsByExhibitionID
 //	@Tags			Comments
-//	@Security		BearerAuth
 //	@ID				GetCommentsByExhibitionID
 //	@Accept			json
 //	@Produce		json

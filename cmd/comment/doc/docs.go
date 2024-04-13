@@ -67,11 +67,6 @@ const docTemplate = `{
         },
         "/api/comments/exhibitions/{id}": {
             "get": {
-                "security": [
-                    {
-                        "BearerAuth": []
-                    }
-                ],
                 "description": "GetCommentsByExhibitionID",
                 "consumes": [
                     "application/json"

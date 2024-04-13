@@ -23,6 +23,12 @@ type User struct {
 	ProfileImage string             `json:"profile,omitempty" bson:"profile,omitempty"`
 }
 
+type UserNoID struct {
+	FirstName    string `json:"firstname" bson:"firstname"`
+	LastName     string `json:"lastname" bson:"lastname"`
+	ProfileImage string `json:"profile,omitempty" bson:"profile,omitempty"`
+}
+
 type Comment struct {
 	ID             primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty" validate:"required"`
 	ExhibitionID   primitive.ObjectID `bson:"exhibitionID" json:"exhibitionId" validate:"required"`
@@ -35,7 +41,7 @@ type Comment struct {
 type ResponseComment struct {
 	ID             primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty" validate:"required"`
 	ExhibitionID   primitive.ObjectID `bson:"exhibitionID" json:"exhibitionId" validate:"required"`
-	User           User               `bson:"user" json:"user" validate:"required"`
+	User           UserNoID           `bson:"user" json:"user" validate:"required"`
 	CommentMessage string             `bson:"commentMessage" json:"commentMessage" validate:"required"`
 	CreateDateAt   primitive.DateTime `bson:"createDateAt" json:"createDateAt" validate:"required"`
 	UpdateDateAt   primitive.DateTime `bson:"updateDateAt,omitempty" json:"updateDateAt,omitempty" `

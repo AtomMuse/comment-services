@@ -11,6 +11,6 @@ func (s *CommentService) GetCommentByID(ctx context.Context, commentID primitive
 	return s.Repository.GetCommentByID(ctx, commentID)
 }
 
-func (s *CommentService) GetCommentsByExhibitionID(ctx context.Context, exhibitionID primitive.ObjectID) ([]*model.Comment, error) {
+func (s *CommentService) GetCommentsByExhibitionID(ctx context.Context, exhibitionID primitive.ObjectID) ([]*model.ResponseComment, error) {
 	return s.Repository.GetCommentsByExhibitionID(ctx, exhibitionID)
 }

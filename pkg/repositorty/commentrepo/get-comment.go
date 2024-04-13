@@ -25,8 +25,8 @@ func (r *CommentRepository) GetCommentByID(ctx context.Context, commentID primit
 	return &comment, nil
 }
 
-func (r *CommentRepository) GetCommentsByExhibitionID(ctx context.Context, exhibitionID primitive.ObjectID) ([]*model.Comment, error) {
-	var comments []*model.Comment
+func (r *CommentRepository) GetCommentsByExhibitionID(ctx context.Context, exhibitionID primitive.ObjectID) ([]*model.ResponseComment, error) {
+	var comments []*model.ResponseComment
 
 	filter := bson.M{"exhibitionID": exhibitionID}
 
@@ -37,7 +37,7 @@ func (r *CommentRepository) GetCommentsByExhibitionID(ctx context.Context, exhib
 	defer cursor.Close(ctx)
 
 	for cursor.Next(ctx) {
-		var comment model.Comment
+		var comment model.ResponseComment
 		if err := cursor.Decode(&comment); err != nil {
 			return nil, err
 		}

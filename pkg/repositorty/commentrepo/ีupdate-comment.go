@@ -20,7 +20,7 @@ func (r *CommentRepository) UpdateComment(ctx context.Context, commentID primiti
 	// Add the Bangkok timezone offset to the current time
 	currentTimeBangkok := currentTimeUTC.Add(time.Duration(bangkokOffset) * time.Second)
 
-	filter := bson.M{"_id": commentID, "userId": userID}
+	filter := bson.M{"_id": commentID, "user._id": userID}
 
 	updateData := bson.M{
 		"$set": bson.M{

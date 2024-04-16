@@ -34,6 +34,8 @@ definitions:
         type: string
       profile:
         type: string
+      username:
+        type: string
     type: object
 info:
   contact: {}
@@ -42,7 +44,7 @@ info:
   title: Comment Service API
   version: v0
 paths:
-  /api/comments:
+  /api-comments/comments:
     post:
       consumes:
       - application/json
@@ -73,7 +75,7 @@ paths:
       summary: Create a new comment
       tags:
       - Comments
-  /api/comments/{id}:
+  /api-comments/comments/{id}:
     delete:
       consumes:
       - application/json
@@ -101,35 +103,6 @@ paths:
       security:
       - BearerAuth: []
       summary: DeleteCommentByID
-      tags:
-      - Comments
-    get:
-      consumes:
-      - application/json
-      description: GetCommentByID
-      operationId: GetCommentByID
-      parameters:
-      - description: Comment ID
-        in: path
-        name: id
-        required: true
-        type: string
-      produces:
-      - application/json
-      responses:
-        "201":
-          description: Created
-        "400":
-          description: Bad Request
-        "401":
-          description: Unauthorized
-        "404":
-          description: Not Found
-        "500":
-          description: Internal Server Error
-      security:
-      - BearerAuth: []
-      summary: GetCommentByID
       tags:
       - Comments
     put:
@@ -167,7 +140,7 @@ paths:
       summary: Update a new comment
       tags:
       - Comments
-  /api/comments/exhibitions/{id}:
+  /api-comments/comments/exhibitions/{id}:
     get:
       consumes:
       - application/json
@@ -191,6 +164,36 @@ paths:
         "500":
           description: Internal Server Error
       summary: GetCommentsByExhibitionID
+      tags:
+      - Comments
+  /api/comments/{id}:
+    get:
+      consumes:
+      - application/json
+      description: GetCommentByID
+      operationId: GetCommentByID
+      parameters:
+      - description: Comment ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      security:
+      - BearerAuth: []
+      summary: GetCommentByID
       tags:
       - Comments
 schemes:

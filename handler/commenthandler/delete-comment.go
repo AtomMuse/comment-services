@@ -22,7 +22,7 @@ import (
 //	@Failure		401
 //	@Failure		404
 //	@Failure		500
-//	@Router			/api/comments/{id} [delete]
+//	@Router			/api-comments/comments/{id} [delete]
 func (h *CommentHandler) DeleteCommentByID(c *gin.Context) {
 	// Extract comment ID from the URL parameter
 	commentID := c.Param("id")

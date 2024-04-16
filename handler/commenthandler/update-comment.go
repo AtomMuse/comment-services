@@ -23,7 +23,7 @@ import (
 //	@Failure		401
 //	@Failure		404
 //	@Failure		500
-//	@Router			/api/comments/{id} [put]
+//	@Router			/api-comments/comments/{id} [put]
 func (h *CommentHandler) UpdateComment(c *gin.Context) {
 	commentID := c.Param("id")
 

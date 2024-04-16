@@ -25,13 +25,13 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
-// @Title						Comment Service API
-// @Version					v0
-// @Description				Comment Service สำหรับขอจัดการเกี่ยวกับ Workshop Manager ทั้งการสร้าง แก้ไข ลบ Workshop Manager
-// @Schemes					http
-// @SecurityDefinitions.apikey	BearerAuth
-// @In							header
-// @Name						Authorization
+//	@Title						Comment Service API
+//	@Version					v0
+//	@Description				Comment Service สำหรับขอจัดการเกี่ยวกับ Workshop Manager ทั้งการสร้าง แก้ไข ลบ Workshop Manager
+//	@Schemes					http
+//	@SecurityDefinitions.apikey	BearerAuth
+//	@In							header
+//	@Name						Authorization
 func main() {
 	initializeEnvironment()
 
@@ -122,6 +122,7 @@ func authMiddleware(role string) gin.HandlerFunc {
 		c.Set("user_first_name", claims.FirstName)
 		c.Set("user_last_name", claims.LastName)
 		c.Set("user_image", claims.ProfileImage)
+		c.Set("user_username", claims.UserName)
 
 		// Check if the role admin
 		if claims.Role == "admin" {
@@ -164,7 +165,7 @@ func setupRouter(client *mongo.Client) *gin.Engine {
 	router.Use(cors.New(config))
 
 	// Group routes
-	api := router.Group("/api")
+	api := router.Group("/api-comments")
 	{
 		//Comments
 		api.POST("/comments", authMiddleware("exhibitor"), commentHandler.CreateComment)

@@ -16,7 +16,7 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/api/comments": {
+        "/api-comments/comments": {
             "post": {
                 "security": [
                     {
@@ -65,7 +65,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/comments/exhibitions/{id}": {
+        "/api-comments/comments/exhibitions/{id}": {
             "get": {
                 "description": "GetCommentsByExhibitionID",
                 "consumes": [
@@ -104,52 +104,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/comments/{id}": {
-            "get": {
-                "security": [
-                    {
-                        "BearerAuth": []
-                    }
-                ],
-                "description": "GetCommentByID",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Comments"
-                ],
-                "summary": "GetCommentByID",
-                "operationId": "GetCommentByID",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "Comment ID",
-                        "name": "id",
-                        "in": "path",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": "Created"
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "Unauthorized"
-                    },
-                    "404": {
-                        "description": "Not Found"
-                    },
-                    "500": {
-                        "description": "Internal Server Error"
-                    }
-                }
-            },
+        "/api-comments/comments/{id}": {
             "put": {
                 "security": [
                     {
@@ -249,6 +204,53 @@ const docTemplate = `{
                     }
                 }
             }
+        },
+        "/api/comments/{id}": {
+            "get": {
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "description": "GetCommentByID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Comments"
+                ],
+                "summary": "GetCommentByID",
+                "operationId": "GetCommentByID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Comment ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
         }
     },
     "definitions": {
@@ -303,6 +305,9 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "profile": {
+                    "type": "string"
+                },
+                "username": {
                     "type": "string"
                 }
             }

@@ -20,12 +20,14 @@ type User struct {
 	ID           primitive.ObjectID `json:"id" bson:"_id,omitempty"`
 	FirstName    string             `json:"firstname" bson:"firstname"`
 	LastName     string             `json:"lastname" bson:"lastname"`
+	Username     string             `bson:"username,omitempty" json:"username,omitempty"`
 	ProfileImage string             `json:"profile,omitempty" bson:"profile,omitempty"`
 }
 
 type UserNoID struct {
 	FirstName    string `json:"firstname" bson:"firstname"`
 	LastName     string `json:"lastname" bson:"lastname"`
+	Username     string `bson:"username,omitempty" json:"username,omitempty"`
 	ProfileImage string `json:"profile,omitempty" bson:"profile,omitempty"`
 }
 

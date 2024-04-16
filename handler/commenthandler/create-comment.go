@@ -8,20 +8,20 @@ import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
-// @Summary		Create a new comment
-// @Description	Create a new comment
-// @Tags			Comments
-// @Security		BearerAuth
-// @ID				CreateComment
-// @Accept			json
-// @Produce		json
-// @Param			requestExhibition	body	model.RequestCreateComment	true	"Comment data to create"
-// @Success		201
-// @Failure		400
-// @Failure		401
-// @Failure		404
-// @Failure		500
-// @Router			/api/comments [post]
+//	@Summary		Create a new comment
+//	@Description	Create a new comment
+//	@Tags			Comments
+//	@Security		BearerAuth
+//	@ID				CreateComment
+//	@Accept			json
+//	@Produce		json
+//	@Param			requestExhibition	body	model.RequestCreateComment	true	"Comment data to create"
+//	@Success		201
+//	@Failure		400
+//	@Failure		401
+//	@Failure		404
+//	@Failure		500
+//	@Router			/api-comments/comments [post]
 func (h *CommentHandler) CreateComment(c *gin.Context) {
 	// Get user information from request context
 	userID, _ := c.Get("user_id")

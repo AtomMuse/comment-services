@@ -52,7 +52,7 @@ func (h *CommentHandler) GetCommentByID(c *gin.Context) {
 //	@Failure		400
 //	@Failure		401
 //	@Failure		500
-//	@Router			/api/comments/exhibitions/{id} [get]
+//	@Router			/api-comments/comments/exhibitions/{id} [get]
 func (h *CommentHandler) GetCommentsByExhibitionID(c *gin.Context) {
 	exhibitionID, err := primitive.ObjectIDFromHex(c.Param("id"))
 	if err != nil {
